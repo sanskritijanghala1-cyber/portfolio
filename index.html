@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Landing</title>
+    <link rel="stylesheet" href="landing-style.css">
+    <style>
+        /* Fade Transition Styles */
+        body {
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+            background-color: #f4f4f4; 
+        }
+        body.fade-out {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero-wrapper">
+        <div class="cabinet">
+            
+            <div class="folder color-6" style="z-index: 1; top: 0px; cursor: pointer;" 
+     onclick="openAndNavigate(this, 'contact.html')">
+    <div class="tab pos-6">contact</div>
+    <div class="content">
+        <div class="grain"></div>
+        <h1 class="simple-title">Contact</h1>
+    </div>
+</div>
+
+            <div class="folder color-5" style="z-index: 2; top: 25px; cursor: pointer;" 
+     onclick="openAndNavigate(this, 'video-editing.html')">
+    <div class="tab pos-5">video editing</div>
+    <div class="content">
+        <div class="grain"></div>
+        <h1 class="simple-title">Video Editing</h1>
+    </div>
+</div>
+
+            <div class="folder color-4" style="z-index: 3; top: 50px; cursor: pointer;" 
+                 onclick="openAndNavigate(this, 'presentation.html')">
+                <div class="tab pos-4">presentation</div>
+                <div class="content">
+                    <div class="grain"></div>
+                    <h1 class="simple-title">Presentation</h1>
+                </div>
+            </div>
+
+            <div class="folder color-3" style="z-index: 4; top: 75px; cursor: pointer;" 
+                 onclick="openAndNavigate(this, 'social-media.html')">
+                <div class="tab pos-3">social media</div>
+                <div class="content">
+                    <div class="grain"></div>
+                    <h1 class="simple-title">Social Media</h1>
+                </div>
+            </div>
+
+            <div class="folder color-2" style="z-index: 5; top: 100px; cursor: pointer;" 
+                 onclick="openAndNavigate(this, 'branding.html')">
+                <div class="tab pos-2">branding</div>
+                <div class="content">
+                    <div class="grain"></div>
+                    <h1 class="simple-title">Branding</h1>
+                </div>
+            </div>
+
+            <div class="folder color-1" style="z-index: 6; top: 125px; cursor: pointer;" 
+                 onclick="openAndNavigate(this, 'graphic-design.html')">
+                <div class="tab pos-1">graphic design</div>
+                <div class="content">
+                    <div class="grain"></div>
+                    <div class="title-lockup">
+                        <span class="script-word">Creative</span>
+                        <span class="block-word">PORTFOLIO</span>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+            <div class="about-section">
+    <div class="about-container">
+        <div class="about-title-lockup">
+            <span class="about-script">About</span>
+            <span class="about-block">Me</span>
+        </div>
+        <div class="about-text">
+            <p>hi! my name is sanskriti janghala. i'm an economics student at symbiosis school of economics, navigating the intersection of analytical logic and visual storytelling.</p>
+            
+            <p>i've been creative since i was a child. while others were looking inside or outside the box, i found myself fascinated by the lines of the box. i loved that space because it allowed me to be infinitely creative while respecting real-world constraints, a perspective i carry into my design work today.</p>
+            
+            <p>my journey has always involved art in some form, whether through the rhythm of poems, the precision of drawings, or the energy of video editing. all those paths have led me here, where i combine my background in economics with a lifelong passion for creating things that matter.</p>
+        </div>
+    </div>
+</div>
+
+    <script>
+        // 1. Standard toggle for normal folders
+        function toggleFolder(element) {
+            const isActive = element.classList.contains('active');
+            
+            // Close all other folders first
+            document.querySelectorAll('.folder').forEach(f => f.classList.remove('active'));
+            
+            // Toggle the clicked one
+            if (!isActive) element.classList.add('active');
+        }
+
+        // 2. Navigation Function (Animates -> Fades -> Links)
+        function openAndNavigate(element, url) {
+            // Trigger the open animation
+            toggleFolder(element);
+
+            // Wait for folder to open (600ms)
+            setTimeout(() => {
+                
+                // Trigger the white fade out
+                document.body.classList.add('fade-out');
+
+                // Wait for fade to finish (500ms), then change page
+                setTimeout(() => {
+                    window.location.href = url;
+                }, 500); 
+
+            }, 600); 
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>video editing | portfolio</title>
+
+    <link rel="stylesheet" href="video-editing.css">
+
+</head>
+
+<body class="grain-container">
+
+    <div class="grain-layer"></div>
+
+
+
+    <div class="nav-glass-toggle" id="navToggle">
+
+        <div class="burger"><span></span><span></span><span></span></div>
+
+        <div class="toggle-text">menu</div>
+
+    </div>
+
+
+
+    <nav class="super-cool-panel" id="navOverlay">
+
+        <div class="panel-close" id="closeMenu">&times;</div>
+
+        <div class="nav-links">
+
+            <a href="index.html">home</a>
+
+            <a href="graphic-design.html">graphic design</a>
+
+            <a href="branding.html">branding</a>
+
+            <a href="social-media.html">social media</a>
+
+            <a href="presentation.html">presentation</a>
+
+            <a href="video-editing.html" class="active">video editing</a>
+
+            <a href="contact.html">contact</a>
+
+        </div>
+
+    </nav>
+
+
+
+    <div class="page-center-wrapper">
+
+        <div class="main-player-layout">
+
+            <div class="side-controls">
+
+                <button class="control-icon" onclick="openZoom()" title="zoom mode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
+
+                <button class="control-icon" onclick="toggleMute()" title="mute/unmute"><svg id="speakerIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5zM19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></button>
+
+                <div class="control-divider"></div>
+
+                <button class="control-icon" onclick="changeVideo(-1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+
+                <button class="control-icon" onclick="changeVideo(1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+
+            </div>
+
+
+
+            <div class="camera-container">
+
+                <img src="assets/videos/camera.png" class="camera-img" alt="Camera Interface">
+
+               
+
+                <div class="cam-label label-zoom">t: zoom</div>
+
+                <div class="cam-label label-flash">flash: play/pause</div>
+
+                <div class="cam-label label-flower">flower: navigation</div>
+
+
+
+                <div class="lcd-screen" onclick="togglePlay()">
+
+                    <video id="portfolioVideo" src="assets/videos/bodies.mp4" playsinline></video>
+
+                    <div class="screen-overlay" id="screenOverlay">
+
+                        <span id="overlayText">press to start</span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="cam-btn btn-flash" onclick="togglePlay()"></div>
+
+                <div class="cam-btn btn-flower" onclick="changeVideo(1)"></div>
+
+                <div class="cam-btn btn-zoom-t" onclick="openZoom()"></div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="project-info">
+
+            <h1 id="projectTitle" class="lowercase-retro">bodies</h1>
+
+            <p id="projectDesc" class="selection-counter">current selection: 1 of 2</p>
+
+        </div>
+
+    </div>
+
+
+
+    <div id="videoLightbox" class="lightbox">
+
+        <span class="close-btn" onclick="closeZoom()">&times;</span>
+
+        <video id="zoomVideo" controls></video>
+
+    </div>
+
+
+
+    <script src="video-editing.js"></script>
+
+</body>
+
+</html>

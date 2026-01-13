@@ -1,0 +1,44 @@
+:root { --cream: #F5F5DC; --black: #000000; }
+body { background: var(--black); color: var(--cream); font-family: 'Courier New', Courier, monospace; overflow: hidden; margin: 0; }
+.grain-layer { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url('assets/videos/grain.jpg'); opacity: 0.12; pointer-events: none; z-index: 1; }
+
+.page-center-wrapper { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; width: 100vw; z-index: 10; position: relative; padding-bottom: 80px; }
+.main-player-layout { display: flex; align-items: center; gap: 60px; }
+
+.project-info { margin-top: -15px; text-align: center; width: 100%; } 
+.lowercase-retro { font-size: 3.5rem; letter-spacing: -1px; text-transform: lowercase; font-weight: 400; margin: 0; }
+.selection-counter { font-size: 0.8rem; opacity: 0.5; letter-spacing: 2px; width: 100%; text-align: center; margin-top: 5px; }
+
+.cam-label { position: absolute; font-size: 15px; font-weight: 700; color: rgba(245, 245, 220, 0.4); text-transform: lowercase; letter-spacing: 2px; white-space: nowrap; z-index: 25; }
+.label-zoom { top: 20%; right: -60px; }
+.label-flash { bottom: 38%; right: -180px; }
+.label-flower { bottom: 25%; right: -200px; }
+
+.camera-container { position: relative; width: 800px; }
+.camera-img { width: 100%; display: block; clip-path: inset(0 0 7% 0); pointer-events: none; }
+
+.lcd-screen { position: absolute; top: 21.2%; left: 10.5%; width: 53.6%; height: 53.2%; background: #000; z-index: 15; overflow: hidden; cursor: pointer; }
+#portfolioVideo { width: 100%; height: 100%; border: none; pointer-events: none; }
+.screen-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 16; pointer-events: none; transition: opacity 0.3s ease; }
+
+.nav-glass-toggle { position: fixed; top: 40px; left: 40px; background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); padding: 10px 20px; cursor: pointer; z-index: 1000; border-radius: 2px; }
+.super-cool-panel { position: fixed; top: 0; left: -100%; width: 100%; height: 100vh; background: rgba(0,0,0,0.98); backdrop-filter: blur(20px); z-index: 2000; transition: 0.6s ease; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+.super-cool-panel.open { left: 0; }
+.nav-links { display: flex; flex-direction: column; gap: 20px; }
+.nav-links a { text-decoration: none; color: #555; font-size: 1.5rem; transition: 0.3s; text-align: center; }
+.nav-links a:hover, .nav-links a.active { color: var(--cream); }
+.panel-close { position: absolute; top: 40px; right: 40px; font-size: 2.5rem; cursor: pointer; color: var(--cream); }
+
+.side-controls { display: flex; flex-direction: column; gap: 15px; border-right: 1px solid rgba(245, 245, 220, 0.15); padding: 20px; }
+.control-icon { background: none; border: 1px solid rgba(245, 245, 220, 0.2); color: var(--cream); width: 40px; height: 40px; border-radius: 4px; cursor: pointer; transition: 0.3s; }
+.control-icon:hover { background: var(--cream); color: var(--black); }
+
+.lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); z-index: 3000; align-items: center; justify-content: center; }
+.lightbox-content { width: 80vw; height: 45vw; max-height: 80vh; }
+#zoomVideo { width: 100%; height: 100%; border: none; }
+.close-btn { position: absolute; top: 30px; right: 40px; color: white; font-size: 3rem; cursor: pointer; z-index: 3001; }
+
+.cam-btn { position: absolute; z-index: 30; cursor: pointer; background: rgba(255,255,255,0); border-radius: 50%; }
+.btn-flash { top: 58%; right: 10%; width: 6%; height: 10%; }
+.btn-flower { top: 58%; right: 23%; width: 6%; height: 10%; }
+.btn-zoom-t { top: 21.5%; right: 12%; width: 5%; height: 8%; border-radius: 4px; }

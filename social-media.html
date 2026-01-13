@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media | Portfolio</title>
+    <link rel="stylesheet" href="social-media.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        @font-face { font-family: 'ChopinScript'; src: url('assets/fonts/ChopinScript.woff2') format('woff2'); }
+        
+        body {
+            opacity: 0;
+            animation: fadeIn 0.8s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="instagram-layout">
+
+        <nav class="sidebar">
+            <div class="logo">Socials</div>
+            
+            <a href="index.html" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span>Home</span>
+            </a>
+
+            <a href="graphic-design.html" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <span>Graphic Design</span>
+            </a>
+
+            <a href="branding.html" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                <span>Branding</span>
+            </a>
+
+            <a href="social-media.html" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                <span>Social Media</span>
+            </a>
+
+            <a href="presentation.html" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                <span>Presentation</span>
+            </a>
+
+            <a href="video-editing.html" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                <span>Video Editing</span>
+            </a>
+
+            <a href="contact.html" class="nav-item">
+    <div class="nav-avatar" style="background-image: url('assets/social-media/katran - 1.jpeg');"></div>
+    <span>Contact</span>
+</a>
+        </nav>
+
+        <main class="feed">
+
+            <div class="stories-container">
+                <div class="story">
+                    <div class="story-ring">
+                        <div class="story-img" style="background-color: #FF5733;"></div>
+                    </div>
+                    <span class="story-user">design_daily</span>
+                </div>
+                <div class="story">
+                    <div class="story-ring">
+                        <div class="story-ring">
+                            <div class="story-img" style="background-color: #C70039;"></div>
+                        </div>
+                    </div>
+                    <span class="story-user">typography</span>
+                </div>
+                <div class="story">
+                    <div class="story-ring">
+                        <div class="story-img" style="background-color: #900C3F;"></div>
+                    </div>
+                    <span class="story-user">minimalist</span>
+                </div>
+                <div class="story">
+                    <div class="story-ring">
+                        <div class="story-img" style="background-color: #581845;"></div>
+                    </div>
+                    <span class="story-user">color_palette</span>
+                </div>
+                <div class="story">
+                    <div class="story-ring">
+                        <div class="story-img" style="background-color: #28B463;"></div>
+                    </div>
+                    <span class="story-user">art_direct</span>
+                </div>
+            </div>
+
+            <article class="post">
+                <div class="post-header">
+                    <div class="post-user">
+                        <div class="user-avatar" style="background-image: url('assets/social-media/katran - 1.jpeg');"></div>
+                        <span class="username">katran.sustainable</span>
+                        <span class="timestamp">• 2h</span>
+                    </div>
+                    <div class="post-options">...</div>
+                </div>
+
+                <div class="post-media" ondblclick="quickLike(this)">
+                    <img src="assets/social-media/katran - 1.jpeg" class="slide">
+                    <img src="assets/social-media/katran - 2.jpeg" class="slide">
+                    <img src="assets/social-media/katran - 3.jpeg" class="slide">
+                    <img src="assets/social-media/katran - 4.jpeg" class="slide">
+                    <img src="assets/social-media/katran - 5.jpeg" class="slide">
+                    <img src="assets/social-media/katran - 6.jpeg" class="slide">
+                    <img src="assets/social-media/katran - 7.jpeg" class="slide">
+                    <div class="like-overlay">❤️</div>
+                </div>
+
+                <div class="post-footer">
+                    <div class="action-bar">
+                        <div class="action-left">
+                            <svg class="icon like-btn" onclick="toggleLike(this)" viewBox="0 0 24 24" stroke="white" fill="none" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            <svg class="icon" viewBox="0 0 24 24" stroke="white" fill="none" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                            <svg class="icon" viewBox="0 0 24 24" stroke="white" fill="none" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </div>
+                        <svg class="icon" viewBox="0 0 24 24" stroke="white" fill="none" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2-2z"></path></svg>
+                    </div>
+
+                    <div class="likes-count">842 likes</div>
+
+                    <div class="caption">
+                        <span class="username">katran.sustainable</span> 
+                        Styling sustainability for every occasion. 🌿 From office chic to street food strolls, proving that eco-friendly fashion is versatile and unique. <br><br>#sustainablefashion #ootd #upcycled #katran #slowfashion
+                    </div>
+
+                    <div class="comments-section">
+                        <div class="comment">
+                            <span class="username">fashion_junkie</span> omg that denim bag is everything 😍
+                        </div>
+                        <div class="comment">
+                            <span class="username">eco.warrior</span> love seeing upcycled fits! ♻️
+                        </div>
+                        <div class="comment">
+                            <span class="username">sarah_styles</span> The prom night look is stunning!
+                        </div>
+                    </div>
+                    
+                    <div class="add-comment">Add a comment...</div>
+                </div>
+            </article>
+
+            <article class="post">
+                <div class="post-header">
+                    <div class="post-user">
+                        <div class="user-avatar" style="background-image: url('assets/social-media/synergy1.jpeg');"></div>
+                        <span class="username">synergy.official</span>
+                        <span class="timestamp">• 5h</span>
+                    </div>
+                    <div class="post-options">...</div>
+                </div>
+
+                <div class="post-media" ondblclick="quickLike(this)">
+                    <img src="assets/social-media/synergy1.jpeg" class="slide">
+                    <img src="assets/social-media/synergy2.jpeg" class="slide">
+                    <img src="assets/social-media/synergy3.jpeg" class="slide">
+                    <img src="assets/social-media/synergy4.jpeg" class="slide">
+                    <img src="assets/social-media/synergy5.jpeg" class="slide">
+                    <div class="like-overlay">❤️</div>
+                </div>
+
+                <div class="post-footer">
+                    <div class="action-bar">
+                        <div class="action-left">
+                            <svg class="icon like-btn" onclick="toggleLike(this)" viewBox="0 0 24 24" stroke="white" fill="none" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            <svg class="icon" viewBox="0 0 24 24" stroke="white" fill="none" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                            <svg class="icon" viewBox="0 0 24 24" stroke="white" fill="none" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </div>
+                        <svg class="icon" viewBox="0 0 24 24" stroke="white" fill="none" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2-2z"></path></svg>
+                    </div>
+
+                    <div class="likes-count">1,204 likes</div>
+
+                    <div class="caption">
+                        <span class="username">synergy.official</span> 
+                        Introducing the Synergy Core 2024-2025. ⚡️ A team driven by creativity and chaos. Swipe to meet the heads. #synergy24 #team
+                    </div>
+
+                    <div class="comments-section">
+                        <div class="comment">
+                            <span class="username">rahul.design</span> This team looks stacked 🔥
+                        </div>
+                        <div class="comment">
+                            <span class="username">creative_minds</span> Love the typography on these slides!
+                        </div>
+                        <div class="comment">
+                            <span class="username">tanya_g</span> my favourite is bebot <3
+                        </div>
+                    </div>
+                    
+                    <div class="add-comment">Add a comment...</div>
+                </div>
+            </article>
+
+        </main>
+
+        <aside class="suggestions">
+            <div class="suggestion-header">
+                <div class="user-avatar" style="background-image: url('assets/social-media/synergy1.jpeg'); width: 44px; height: 44px;"></div>
+                <div class="suggestion-info">
+                    <span class="username">my_portfolio</span>
+                    <span class="subtext">Switch</span>
+                </div>
+                <div class="follow-link">Switch</div>
+            </div>
+            
+            <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
+                <span class="subtext" style="font-weight:600;">Suggestions For You</span>
+                <span class="follow-link" style="color:white; font-size:12px;">See All</span>
+            </div>
+
+            <div class="suggestion-item">
+                <div class="user-avatar" style="background-image: url('assets/social-media/profilepic1.jpg'); background-size: cover;"></div>
+                <div class="suggestion-info">
+                    <span class="username">figma_design</span>
+                    <span class="subtext">New to Instagram</span>
+                </div>
+                <div class="follow-link">Follow</div>
+            </div>
+            <div class="suggestion-item">
+                <div class="user-avatar" style="background-image: url('assets/social-media/profilepic2.jpg'); background-size: cover;"></div>
+                <div class="suggestion-info">
+                    <span class="username">adobe_creative</span>
+                    <span class="subtext">Followed by synergy...</span>
+                </div>
+                <div class="follow-link">Follow</div>
+            </div>
+        </aside>
+
+    </div>
+
+    <script>
+        function toggleLike(element) {
+            if (element.getAttribute('fill') === '#ed4956') {
+                element.setAttribute('fill', 'none');
+                element.setAttribute('stroke', 'white');
+            } else {
+                element.setAttribute('fill', '#ed4956');
+                element.setAttribute('stroke', '#ed4956');
+            }
+        }
+
+        function quickLike(container) {
+            const heart = container.querySelector('.like-overlay');
+            const btn = container.parentElement.querySelector('.like-btn');
+            
+            heart.style.opacity = '1';
+            heart.style.transform = 'translate(-50%, -50%) scale(1.2)';
+            
+            setTimeout(() => {
+                heart.style.opacity = '0';
+                heart.style.transform = 'translate(-50%, -50%) scale(0)';
+            }, 800);
+
+            btn.setAttribute('fill', '#ed4956');
+            btn.setAttribute('stroke', '#ed4956');
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,240 @@
+/* --- 1. FONTS --- */
+@font-face { font-family: 'ChopinScript'; src: url('assets/fonts/ChopinScript.woff2') format('woff2'); }
+@font-face { font-family: 'Warriot'; src: url('assets/fonts/warriot-Bold.woff2') format('woff2'); font-weight: bold; }
+@font-face { font-family: 'Klarissa'; src: url('assets/fonts/Klarissa.ttf') format('truetype'); font-weight: bold; }
+
+:root {
+    --bg-cream: #e9e4d1;
+    --c1: #f198ac; --t1: #fff8bd; 
+    --c2: #1a1a1a; --t2: #ffffff;
+    --c3: #f5f5f0; --t3: #f198ac; 
+    --c4: #95a383; --t4: #4a4a4a; 
+    --c5: #bfb8b0; --t5: #5e6b4e; 
+    --c6: #7a5c68; --t6: #e9e4d1; 
+}
+
+body {
+    background-color: var(--bg-cream);
+    margin: 0;
+    width: 100%;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #1a1a1a;
+    overflow-x: hidden; 
+    transition: opacity 0.5s ease-in-out;
+}
+
+body.fade-out {
+    opacity: 0;
+}
+
+/* --- 2. HERO WRAPPER --- */
+.hero-wrapper {
+    position: relative;
+    min-height: 100vh; 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+    padding-top: 10vh; 
+    
+    /* FIX FOR "ABOUT ME": Drastically increased bumper space */
+    padding-bottom: 40vh; 
+    
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.cabinet {
+    position: relative;
+    /* Keeping your requested width */
+    width: 96vw; 
+    max-width: 1600px;
+    height: 75vh; 
+}
+
+/* --- FOLDERS --- */
+.folder {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    animation: slideUp 0.8s cubic-bezier(0.2, 1, 0.2, 1) backwards;
+    transform-origin: center top; 
+}
+
+/* FIX FOR SEPARATION: Move the WHOLE folder on hover, not just the tab */
+.folder:hover {
+    transform: translateY(-15px);
+    z-index: 50; /* Bring hovered folder slightly forward */
+}
+
+/* Stagger Animations */
+.folder:nth-child(1) { animation-delay: 0.05s; }
+.folder:nth-child(2) { animation-delay: 0.1s; }
+.folder:nth-child(3) { animation-delay: 0.15s; }
+.folder:nth-child(4) { animation-delay: 0.2s; }
+.folder:nth-child(5) { animation-delay: 0.25s; }
+.folder:nth-child(6) { animation-delay: 0.3s; }
+
+@keyframes slideUp {
+    from { transform: translateY(100vh) scale(0.9); opacity: 0; }
+    to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.folder.active {
+    /* The active pull-up */
+    transform: translateY(-120px) !important;
+    z-index: 100 !important;
+}
+
+/* --- CONTENT BOX --- */
+.content {
+    height: 65vh; 
+    border-radius: 30px; 
+    padding: 60px;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15); 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    padding-top: 80px; 
+    align-items: center;     
+    text-align: center;
+}
+
+/* --- TITLE LOCKUP --- */
+.title-lockup {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    position: relative;
+}
+
+.script-word {
+    font-family: 'ChopinScript', cursive;
+    font-size: 14rem; 
+    line-height: 1; 
+    color: inherit; 
+    margin-bottom: 15px; 
+    transform: translateX(-30px); 
+    position: relative;
+    z-index: 20; 
+    text-shadow: 4px 4px 0px rgba(0,0,0,0.05);
+    mix-blend-mode: overlay; 
+    opacity: 0.9;
+}
+
+.block-word {
+    font-family: 'Warriot', serif; 
+    font-size: 4rem; 
+    text-transform: uppercase;
+    color: inherit;
+    letter-spacing: 12px; 
+    margin-right: -12px; 
+    position: relative;
+    z-index: 10;
+    mix-blend-mode: overlay; 
+    opacity: 0.9;
+}
+
+/* --- TABS --- */
+.tab {
+    position: absolute;
+    top: -49px; 
+    height: 50px; 
+    width: 16.66%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px 15px 0 0;
+    font-family: 'Courier New', Courier, monospace; 
+    font-weight: normal; 
+    font-size: 16px; 
+    text-transform: lowercase; 
+    cursor: pointer;
+    overflow: hidden;
+    /* FIX: Removed transition that was causing sync issues with folder */
+}
+
+/* FIX: Removed .tab:hover { transform... } completely. 
+   Now the tab stays attached to the folder at all times. */
+
+.pos-1 { left: 0%; }
+.pos-2 { left: 16.66%; }
+.pos-3 { left: 33.33%; }
+.pos-4 { left: 50%; }
+.pos-5 { left: 66.66%; }
+.pos-6 { left: 83.33%; }
+
+.tab::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('assets/textures/paper-grain.avif'); 
+    background-size: cover; opacity: 0.4; mix-blend-mode: multiply; pointer-events: none; z-index: -1; 
+}
+
+/* --- ABOUT ME SECTION --- */
+.about-section {
+    background-color: transparent; 
+    padding: 50px 5vw 150px 5vw; 
+    
+    /* FIX: Added top margin to pull it even further down */
+    margin-top: 100px;
+    
+    position: relative;
+    z-index: 5; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-container {
+    width: 100%;
+    max-width: 900px;
+    text-align: center; 
+}
+
+.about-title-lockup {
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    line-height: 0.8;
+}
+
+.about-script {
+    font-family: 'ChopinScript', cursive;
+    font-size: 8rem;
+    color: #1a1a1a;
+    transform: translateX(-10px); 
+}
+
+.about-block {
+    font-family: 'Warriot', serif;
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    letter-spacing: 8px;
+    margin-top: 10px;
+}
+
+.about-text p {
+    font-family: 'Courier New', monospace; 
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    color: #333;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- UTILS --- */
+.simple-title { font-family: 'Warriot', serif; font-size: 5rem; text-transform: uppercase; letter-spacing: 2px; }
+.grain { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('assets/textures/paper-grain.avif'); background-size: cover; opacity: 0.35; pointer-events: none; mix-blend-mode: multiply; }
+.color-1 .content, .color-1 .tab { background-color: var(--c1); color: var(--t1); box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+.color-2 .content, .color-2 .tab { background-color: var(--c2); color: var(--t2); box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+.color-3 .content, .color-3 .tab { background-color: var(--c3); color: var(--t3); box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+.color-4 .content, .color-4 .tab { background-color: var(--c4); color: var(--t4); box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+.color-5 .content, .color-5 .tab { background-color: var(--c5); color: var(--t5); box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+.color-6 .content, .color-6 .tab { background-color: var(--c6); color: var(--t6); box-shadow: 0 10px 40px rgba(0,0,0,0.2); }

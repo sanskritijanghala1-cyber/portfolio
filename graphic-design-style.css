@@ -1,0 +1,268 @@
+/* --- FONTS --- */
+@font-face {
+  font-family: 'Velvenda';
+  src: url('assets/fonts/velvenda.megablack-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Cooper Hewitt';
+  src: url('assets/fonts/cooper-hewitt.book.woff2') format('woff2');
+}
+
+/* Added Crimson for the menu hover font only */
+@font-face {
+  font-family: 'Crimson';
+  src: url('assets/fonts/crimson.woff2') format('woff2');
+  font-weight: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: black;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* ---------------- HERO ---------------- */
+.hero {
+  padding: 12vh 0 6vh;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero .primary {
+  font-family: 'Velvenda', sans-serif;
+  font-size: clamp(4rem, 9vw, 7.5rem);
+  display: block;
+}
+
+.hero .secondary {
+  font-family: 'Cooper Hewitt', sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.8rem);
+  margin-top: 0.4em;
+  opacity: 0.8;
+}
+
+/* ---------------- CAROUSEL ---------------- */
+.carousel-section {
+  padding-bottom: 8vh;
+}
+
+.carousel {
+  display: flex;
+  align-items: flex-start;
+  gap: 64px;
+  /* REDUCED bottom padding from 300px to 100px to fix empty space */
+  padding: 80px 8vw 100px; 
+  overflow-x: auto;
+  overflow-y: visible;
+  cursor: grab;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel.dragging {
+  cursor: grabbing;
+}
+
+/* ---------------- POSTER ---------------- */
+.poster {
+  flex-shrink: 0;
+  width: 360px; /* locks caption width */
+  display: flex;
+  justify-content: center;
+}
+
+.poster-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.poster img {
+  height: 360px;
+  display: block;
+  margin-bottom: 40px; 
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.35s ease;
+}
+
+/* hierarchy */
+.poster.far img {
+  transform: scale(0.82) translateY(16px);
+  opacity: 0.25;
+}
+
+.poster.near img {
+  transform: scale(0.92) translateY(6px);
+  opacity: 0.5;
+}
+
+.poster.active img {
+  transform: scale(1.25) translateY(-8px);
+  opacity: 1;
+}
+
+/* ---------------- CAPTION ---------------- */
+.caption {
+  margin-top: 0;
+  padding-top: 8px;
+  text-align: center;
+  font-family: 'Cooper Hewitt', sans-serif;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  max-width: 320px;
+}
+
+.poster.active .caption {
+  opacity: 1;
+}
+
+.caption .title {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;      
+  overflow: hidden;
+  text-overflow: ellipsis;  
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.caption .desc {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.page-spacer {
+  height: 25vh;
+}
+
+/* ---------------- REFINED STAR NAVIGATION ---------------- */
+
+.nav-toggle {
+    position: fixed;
+    top: 30px;
+    right: 40px;
+    z-index: 2001; 
+    cursor: pointer;
+    mix-blend-mode: difference;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.star-icon {
+    fill: #fff;
+    width: 100%;
+    height: 100%;
+    animation: starSpin 12s linear infinite;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav-toggle.active .star-icon {
+    animation: none;
+    transform: rotate(45deg) scale(1.1);
+}
+
+@keyframes starSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    right: -100%; 
+    width: 380px; 
+    height: 100vh;
+    background: rgba(13, 13, 13, 0.98); 
+    backdrop-filter: blur(15px); 
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 4rem;
+    transition: right 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-overlay.open {
+    right: 0; 
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-bottom: 1.8rem;
+    opacity: 0;
+    transform: translateX(30px);
+    transition: all 0.5s ease;
+}
+
+.nav-overlay.open .nav-links li {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.nav-links a {
+    color: rgba(255,255,255,0.4); /* Dimmed by default */
+    text-decoration: none;
+    font-family: 'Cooper Hewitt', sans-serif;
+    font-size: 1.2rem; 
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 0.25em;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+/* EXTRACTED COLORS TARGETING
+   Mapping the 7 colors to your 7 navigation items
+*/
+
+/* Home - Parchment */
+.nav-links li:nth-child(1) a:hover { color: #F7F5F1; }
+
+/* Graphic Design - White */
+.nav-links li:nth-child(2) a:hover, 
+.nav-links li:nth-child(2) a.active { color: #FFFFFF; }
+
+/* Branding - Mirra Pink */
+.nav-links li:nth-child(3) a:hover { color: #E6CECB; }
+
+/* Social Media - Kody Blu Orange */
+.nav-links li:nth-child(4) a:hover { color: #FF4500; }
+
+/* Presentation - GNX Blue */
+.nav-links li:nth-child(5) a:hover { color: #A5D7E8; }
+
+/* Video Editing - Eyez Green */
+.nav-links li:nth-child(6) a:hover { color: #00D166; }
+
+/* Contact - Runaway Purple */
+.nav-links li:nth-child(7) a:hover { color: #BF5AF2; }
+
+
+@media (max-width: 768px) {
+    .nav-overlay { width: 100%; }
+}
